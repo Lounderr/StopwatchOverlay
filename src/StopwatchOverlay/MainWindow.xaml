@@ -23,25 +23,21 @@
     Topmost="True"
     
     WindowStartupLocation="Manual" 
-    Left="25" Top="25" 
-    >
+    Left="25" Top="25">
     <Window.Background>
         <SolidColorBrush Opacity="0"/>
     </Window.Background>
     <Border 
         x:Name="BorderContainer"
         CornerRadius="11" 
-        Background="#D5111111"
-    >
-
+        Background="#D5111111">
         <Grid>
             <TextBlock
                 x:Name="Counter"
                 Foreground="White"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
-            >
-                00:00
+                Text="00:00">
             </TextBlock>
         </Grid>
     </Border>

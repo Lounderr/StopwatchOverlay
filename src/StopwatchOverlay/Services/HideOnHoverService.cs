@@ -10,30 +10,22 @@ using System.Windows.Controls;
 
 namespace StopwatchOverlay.Logic
 {
-    internal class HideOnHoverLogic : Window
+    public class HideOnHoverService : Window
     {
+        public HideOnHoverService(Window appWindow, FrameworkElement elementToHide)
+        {
+            this.AppWindow = appWindow;
+            this.ElementToHide = elementToHide;
+        }
+
         public Window AppWindow { get; set; }
-        public FrameworkElement BorderContainer { get; set; }
-        public HideOnHoverLogic(Window appWindow, FrameworkElement borderContainer)
+        public FrameworkElement ElementToHide { get; set; }
+
+        public void Start()
         {
             MouseHook.Start();
             MouseHook.MouseAction += new EventHandler(OnHoverHide);
-            AppWindow = appWindow;
-            this.BorderContainer = borderContainer;
         }
-
-        [DllImport("user32.dll")]
-        [return: MarshalAs(UnmanagedType.Bool)]
-
-        internal static extern bool GetCursorPos(ref Win32Point pt);
-
-        [StructLayout(LayoutKind.Sequential)]
-
-        internal struct Win32Point
-        {
-            public int X;
-            public int Y;
-        };
 
         public static Point GetMousePosition()
         {
@@ -50,18 +42,36 @@ namespace StopwatchOverlay.Logic
             Point TopLeftWindowPoint = new Point(AppWindow.Left, AppWindow.Top);
             Point BottomRightWindowPoint = new Point(AppWindow.Left + AppWindow.Width, AppWindow.Top + AppWindow.Height);
 
-            //If mouse isn't over window
-            if (MousePos.X >= TopLeftWindowPoint.X && MousePos.Y >= TopLeftWindowPoint.Y)
+            // If mouse is over window
+            if (CheckIfOverWindow(MousePos, TopLeftWindowPoint, BottomRightWindowPoint))
             {
-                if (MousePos.X <= BottomRightWindowPoint.X && MousePos.Y <= BottomRightWindowPoint.Y)
-                {
-                    BorderContainer.Opacity = 0;
-                    return;
-                }
+                ElementToHide.Opacity = 0;
+                return;
             }
 
-            BorderContainer.Opacity = 1;
+            ElementToHide.Opacity = 1;
         }
+
+        private static bool CheckIfOverWindow(Point MousePos, Point TopLeftWindowPoint, Point BottomRightWindowPoint)
+        {
+            return MousePos.X >= TopLeftWindowPoint.X && MousePos.Y >= TopLeftWindowPoint.Y &&
+                MousePos.X <= BottomRightWindowPoint.X && MousePos.Y <= BottomRightWindowPoint.Y;
+        }
+
+        // *******************************
+
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+
+        internal static extern bool GetCursorPos(ref Win32Point pt);
+
+        [StructLayout(LayoutKind.Sequential)]
+
+        internal struct Win32Point
+        {
+            public int X;
+            public int Y;
+        };
 
         public static class MouseHook
         {

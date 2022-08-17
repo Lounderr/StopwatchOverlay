@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace StopwatchOverlay.Logic
 {
-    internal class ClickThroughLogic : Window
+    internal class ClickThroughWindowService : Window
     {
 
         protected override void OnSourceInitialized(EventArgs e)
@@ -22,9 +22,11 @@ namespace StopwatchOverlay.Logic
 
             // Make the button "visible" to the Mouse
 
-            //var buttonHwndSource = (HwndSource)HwndSource.FromVisual(btn);
-            //var buttonHwnd = buttonHwndSource.Handle;
-            //WindowsServices.SetWindowExNotTransparent(buttonHwnd);
+            /*
+            var buttonHwndSource = (HwndSource)HwndSource.FromVisual(btn);
+            var buttonHwnd = buttonHwndSource.Handle;
+            WindowsServices.SetWindowExNotTransparent(buttonHwnd);
+            */
         }
 
         public static class WindowsServices
