@@ -27,18 +27,18 @@ namespace StopwatchOverlay.Logic
 
         private void StartStop(DetectHotkeyService hotKey)
         {
-            if (timekeeper.IsRunning())
+            if (this.timekeeper.IsRunning())
             {
-                timekeeper.Stop();
+                this.timekeeper.Stop();
                 return;
             }
 
-            timekeeper.Start();
+            this.timekeeper.Start();
         }
 
         private void Reset(DetectHotkeyService hotKey)
         {
-            timekeeper.Reset();
+            this.timekeeper.Reset();
         }
     }
 }

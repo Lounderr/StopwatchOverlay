@@ -11,7 +11,6 @@ namespace StopwatchOverlay.Logic
 {
     internal class ClickThroughWindowService : Window
     {
-
         protected override void OnSourceInitialized(EventArgs e)
         {
             base.OnSourceInitialized(e);

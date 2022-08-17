@@ -14,13 +14,13 @@ namespace StopwatchOverlay.Logic
 
         public TimekeepingService(TextBlock TimeDisplayElement)
         {
-            dispatcherTimer = new DispatcherTimer();
-            stopwatch = new Stopwatch();
+            this.dispatcherTimer = new DispatcherTimer();
+            this.stopwatch = new Stopwatch();
 
-            dispatcherTimer.Tick += new EventHandler(TickEventHandler);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 1);
+            this.dispatcherTimer.Tick += new EventHandler(TickEventHandler);
+            this.dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 1);
 
-            dispatcherTimer.Start();
+            this.dispatcherTimer.Start();
 
             this.TimeDisplayElement = TimeDisplayElement;
         }
@@ -30,36 +30,36 @@ namespace StopwatchOverlay.Logic
 
         public void Start()
         {
-            TimeDisplayElement.Foreground = Brushes.White;
+            this.TimeDisplayElement.Foreground = Brushes.White;
 
-            stopwatch.Start();
+            this.stopwatch.Start();
         }
 
         public void Stop()
         {
-            if (stopwatch.IsRunning)
+            if (this.stopwatch.IsRunning)
             {
-                stopwatch.Stop();
+                this.stopwatch.Stop();
             }
         }
 
         public void Reset()
         {
-            stopwatch.Reset();
-            TimeDisplayElement.Text = "00:00";
+            this.stopwatch.Reset();
+            this.TimeDisplayElement.Text = "00:00";
         }
 
         public bool IsRunning()
         {
-            return stopwatch.IsRunning;
+            return this.stopwatch.IsRunning;
         }
 
         private void TickEventHandler(object? sender, EventArgs e)
         {
-            if (stopwatch.IsRunning)
+            if (this.stopwatch.IsRunning)
             {
                 TimeSpan elapsedTime = stopwatch.Elapsed;
-                TimeDisplayElement.Text = string.Format("{0:00}:{1:00}", elapsedTime.Hours, elapsedTime.Seconds);
+                this.TimeDisplayElement.Text = string.Format("{0:00}:{1:00}", elapsedTime.Hours, elapsedTime.Seconds);
             }
             else
             {
@@ -69,15 +69,15 @@ namespace StopwatchOverlay.Logic
 
         private void Blink()
         {
-            if (!blinkState)
+            if (!this.blinkState)
             {
-                TimeDisplayElement.Foreground = Brushes.OrangeRed;
-                blinkState = true;
+                this.TimeDisplayElement.Foreground = Brushes.OrangeRed;
+                this.blinkState = true;
 
                 return;
             }
-            TimeDisplayElement.Foreground = Brushes.White;
-            blinkState = false;
+            this.TimeDisplayElement.Foreground = Brushes.White;
+            this.blinkState = false;
         }
     }
 }

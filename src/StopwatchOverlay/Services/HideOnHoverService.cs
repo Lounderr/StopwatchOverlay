@@ -45,11 +45,11 @@ namespace StopwatchOverlay.Logic
             // If mouse is over window
             if (CheckIfOverWindow(MousePos, TopLeftWindowPoint, BottomRightWindowPoint))
             {
-                ElementToHide.Opacity = 0;
+                this.ElementToHide.Opacity = 0;
                 return;
             }
 
-            ElementToHide.Opacity = 1;
+            this.ElementToHide.Opacity = 1;
         }
 
         private static bool CheckIfOverWindow(Point MousePos, Point TopLeftWindowPoint, Point BottomRightWindowPoint)
