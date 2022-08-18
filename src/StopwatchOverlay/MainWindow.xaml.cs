@@ -44,8 +44,6 @@ namespace StopwatchOverlay
 
 
             var screenWidth = System.Windows.SystemParameters.WorkArea.Width;
-            var screenHeight = System.Windows.SystemParameters.WorkArea.Height;
-
             Point topRightPoint = new Point(screenWidth - this.AppWindow.Width - 25, 25);
 
             this.AppWindow.Left = topRightPoint.X;
@@ -54,7 +52,13 @@ namespace StopwatchOverlay
 
             if (Properties.Settings.Default.FirstLaunch)
             {
-                MessageBox.Show("\tShift + Win + F7    |    Start / Stop Time\n\n\tShift + Win + F8    |    Restart Time\n\n\tShift + Win + F9    |    Change Window Position", "Controls");
+                MessageBox.Show(
+                    "CONTROLS", 
+                    "SHIFT + WIN + F7  - Start/Stop\n\n" +
+                    "SHIFT + WIN + F8  - Restart\n\n" +
+                    "SHIFT + WIN + F9  - Change Position\n\n" +
+                    "SHIFT + WIN + F10 - Exit Application");
+
                 Properties.Settings.Default.FirstLaunch = false;
                 Properties.Settings.Default.Save();
             }

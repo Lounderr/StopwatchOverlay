@@ -32,6 +32,8 @@ namespace StopwatchOverlay.Logic
 
             var SwitchCornerHotkey = new DetectHotkeyService(Key.F9, KeyModifier.Shift | KeyModifier.Win, SwitchCorner);
             this.windowPosIndex = 1;
+
+            var ExitApplicationHotkey = new DetectHotkeyService(Key.F10, KeyModifier.Shift | KeyModifier.Win, ExitApplication);
         }
 
         private void StartStop(DetectHotkeyService hotKey)
@@ -50,7 +52,7 @@ namespace StopwatchOverlay.Logic
             this.timekeeper.Reset();
         }
 
-        private void SwitchCorner(DetectHotkeyService obj)
+        private void SwitchCorner(DetectHotkeyService hotkey)
         {
             var screenWidth = System.Windows.SystemParameters.WorkArea.Width;
             var screenHeight = System.Windows.SystemParameters.WorkArea.Height;
@@ -89,6 +91,11 @@ namespace StopwatchOverlay.Logic
                 this.appWindow.Left = topRightPoint.X;
                 this.appWindow.Top = topRightPoint.Y;
             }
+        }
+
+        private void ExitApplication(DetectHotkeyService hotkey)
+        {
+            System.Windows.Application.Current.Shutdown();
         }
     }
 }
