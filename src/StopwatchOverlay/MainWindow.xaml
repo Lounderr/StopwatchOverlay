@@ -10,7 +10,7 @@
     
     Title="MainWindow" 
     
-    FontFamily="/Resources/Fonts/#Roboto Mono"
+    FontFamily="{StaticResource RobotoMono}"
     FontSize="21"
 
     Height="45" 

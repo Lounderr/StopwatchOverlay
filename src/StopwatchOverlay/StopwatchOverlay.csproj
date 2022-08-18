@@ -12,9 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Resources\Fonts\RobotoMono-Regular.ttf">
+    <Resource Include="Resources\Fonts\RobotoMono-Regular.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>

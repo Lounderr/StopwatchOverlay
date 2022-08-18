@@ -5,6 +5,6 @@
              StartupUri="MainWindow.xaml"
              ShutdownMode="OnMainWindowClose">
     <Application.Resources>
-         
+        <FontFamily x:Key="RobotoMono">pack://application:,,,/Resources/Fonts/#Roboto Mono</FontFamily>
     </Application.Resources>
 </Application>
