@@ -17,6 +17,7 @@ using System.Threading;
 using System.Diagnostics.Metrics;
 using StopwatchOverlay.Logic;
 using static StopwatchOverlay.MainWindow;
+using System.Diagnostics;
 
 namespace StopwatchOverlay
 {
@@ -30,13 +31,21 @@ namespace StopwatchOverlay
             this.InitializeComponent();
 
             var timekeeper = new TimekeepingService(Counter);
-            timekeeper.Start();
 
             var hideOnHoverService = new HideOnHoverService(AppWindow, BorderContainer);
             hideOnHoverService.Start();
 
             var clickThroughWindowService = new ClickThroughWindowService();
-            var hotkeyAssignmentService = new HotkeysService(timekeeper);
+            var hotkeyAssignmentService = new HotkeysService(timekeeper, AppWindow);
+
+
+            var screenWidth = System.Windows.SystemParameters.WorkArea.Width;
+            var screenHeight = System.Windows.SystemParameters.WorkArea.Height;
+
+            Point topRightPoint = new Point(screenWidth - this.AppWindow.Width - 25, 25);
+
+            this.AppWindow.Left = topRightPoint.X;
+            this.AppWindow.Top = topRightPoint.Y;
         }
     }
 }

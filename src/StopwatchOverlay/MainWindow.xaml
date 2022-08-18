@@ -22,8 +22,7 @@
     ResizeMode="NoResize"
     Topmost="True"
     
-    WindowStartupLocation="Manual" 
-    Left="25" Top="25">
+    WindowStartupLocation="Manual">
     <Window.Background>
         <SolidColorBrush Opacity="0"/>
     </Window.Background>

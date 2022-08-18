@@ -71,7 +71,7 @@ namespace StopwatchOverlay.Logic
         {
             if (!this.blinkState)
             {
-                this.TimeDisplayElement.Foreground = Brushes.OrangeRed;
+                this.TimeDisplayElement.Foreground = Brushes.Red;
                 this.blinkState = true;
 
                 return;
