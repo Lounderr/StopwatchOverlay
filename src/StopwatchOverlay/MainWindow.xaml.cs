@@ -18,6 +18,10 @@ using System.Diagnostics.Metrics;
 using StopwatchOverlay.Logic;
 using static StopwatchOverlay.MainWindow;
 using System.Diagnostics;
+using System.Configuration;
+using System.Collections.Specialized;
+using System.IO;
+using Microsoft.Win32;
 
 namespace StopwatchOverlay
 {
@@ -46,6 +50,14 @@ namespace StopwatchOverlay
 
             this.AppWindow.Left = topRightPoint.X;
             this.AppWindow.Top = topRightPoint.Y;
+            Properties.Settings.Default.FirstLaunch = true;
+
+            if (Properties.Settings.Default.FirstLaunch)
+            {
+                MessageBox.Show("\tShift + Win + F7    |    Start / Stop Time\n\n\tShift + Win + F8    |    Restart Time\n\n\tShift + Win + F9    |    Change Window Position", "Controls");
+                Properties.Settings.Default.FirstLaunch = false;
+                Properties.Settings.Default.Save();
+            }
         }
     }
 }
