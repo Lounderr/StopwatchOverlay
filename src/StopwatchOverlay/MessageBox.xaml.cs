@@ -36,7 +36,7 @@ namespace StopwatchOverlay
         public static MessageBoxResult Show(string caption, string message)
         {
             var dialog = new MessageBox() { Title = caption };
-            dialog.TitleContainer.Text = caption;
+            dialog.TitleContainer.Text = caption.ToUpper();
             dialog.MessageContainer.Text = message;
             dialog.AddButton("Continue", MessageBoxResult.None);
             dialog.ShowDialog();

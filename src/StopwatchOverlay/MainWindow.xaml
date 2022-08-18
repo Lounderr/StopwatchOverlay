@@ -8,7 +8,7 @@
     xmlns:local="clr-namespace:StopwatchOverlay"
     mc:Ignorable="d"
     
-    Title="MainWindow" 
+    Title="Stopwatch" 
     
     FontFamily="{StaticResource RobotoMono}"
     FontSize="21"

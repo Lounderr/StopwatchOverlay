@@ -50,11 +50,12 @@ namespace StopwatchOverlay
             this.AppWindow.Top = topRightPoint.Y;
 
             MessageBox.Show(
-                "CONTROLS",
+                "Controls",
+                "SHIFT + WIN + F1  - Show Controls\n\n" +
                 "SHIFT + WIN + F7  - Start/Stop\n\n" +
                 "SHIFT + WIN + F8  - Restart\n\n" +
                 "SHIFT + WIN + F9  - Change Position\n\n" +
-                "SHIFT + WIN + F10 - Exit Application");
+                "SHIFT + WIN + F10 - Exit");
 
             //Properties.Settings.Default.FirstLaunch = true;
 

@@ -26,6 +26,8 @@ namespace StopwatchOverlay.Logic
             this.timekeeper = timekeeper;
             this.appWindow = appWindow;
 
+            var ShowControlsHotkey = new DetectHotkeyService(Key.F1, KeyModifier.Shift | KeyModifier.Win, ShowControls);
+
             var StartStopHotkey = new DetectHotkeyService(Key.F7, KeyModifier.Shift | KeyModifier.Win, StartStop);
 
             var ResetHotkey = new DetectHotkeyService(Key.F8, KeyModifier.Shift | KeyModifier.Win, Reset);
@@ -96,6 +98,19 @@ namespace StopwatchOverlay.Logic
         private void ExitApplication(DetectHotkeyService hotkey)
         {
             System.Windows.Application.Current.Shutdown();
+        }
+
+        private void ShowControls(DetectHotkeyService hotkey)
+        {
+            if (!Application.Current.Windows.Cast<Window>().Any(x => x.Title == "CONTROLS"))
+            {
+                MessageBox.Show(
+                    "CONTROLS",
+                    "SHIFT + WIN + F7  - Start/Stop\n\n" +
+                    "SHIFT + WIN + F8  - Restart\n\n" +
+                    "SHIFT + WIN + F9  - Change Position\n\n" +
+                    "SHIFT + WIN + F10 - Exit Application");
+            }
         }
     }
 }

@@ -6,11 +6,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:StopwatchOverlay"
     mc:Ignorable="d"
-    Title="MessageBox"
+    Title="Controls"
         
     FontFamily="{StaticResource RobotoMono}"
 
-    Height="250" 
+    Height="270" 
     Width="290"
     
     WindowStyle="None" 
@@ -39,13 +39,15 @@
                     FontSize="16"
                     Foreground="White" 
                     TextWrapping="WrapWithOverflow" 
-                    Margin="10"/>
+                    Margin="10"
+                    Text="Title"/>
                 <TextBlock 
                     Name="MessageContainer" 
                     FontSize="12"
                     Foreground="White" 
                     TextWrapping="WrapWithOverflow" 
-                    Margin="10"/>
+                    Margin="10"
+                    Text="Text"/>
             </StackPanel>
 
             <StackPanel 

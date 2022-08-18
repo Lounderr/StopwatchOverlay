@@ -59,7 +59,7 @@ namespace StopwatchOverlay.Logic
             if (this.stopwatch.IsRunning)
             {
                 TimeSpan elapsedTime = stopwatch.Elapsed;
-                this.TimeDisplayElement.Text = string.Format("{0:00}:{1:00}", elapsedTime.Hours, elapsedTime.Seconds);
+                this.TimeDisplayElement.Text = string.Format("{0:00}:{1:00}", elapsedTime.Hours, elapsedTime.Minutes);
             }
             else
             {
